@@ -1,12 +1,21 @@
-const url = 'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
+const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
 const method = 'GET'
 const isAsync = false
-main()
+
+main2()
 
 function main () {
  const request = new XMLHttpRequest()
  request.open(method, url, isAsync);
  request.send()
 
- console.log(request.response)
+ const data = JSON.parse(request.response);
+console.log(data);
+}
+ 
+function main2(){
+   fetch(url)
+   .then(response => response.json())
+   .then(data => console.log(data))
+   
 }
